@@ -1,10 +1,6 @@
-setwd("C:/Users/Max/Documents/R")
+#experiment with plotly 
 
 pacman::p_load(tidyverse,reshape2,magrittr,lubridate,data.table,plotly,mice,VIM,gridExtra,missMDA) 
-
-DIR = 'C:/Users/Max/Documents/R'
-file1 = 'Day8_Assign_Data.csv'
-file2 = 'Day8_Assign_Data2.csv'
 
 data = read.csv(file.path(DIR, file1)) 
 data2 = read.csv(file.path(DIR, file2)) 
@@ -95,13 +91,6 @@ HTD = plot_ly(data_merge,x = ~date_time_format_2,  y = ~Humidity, z = ~Temperatu
                       yaxis = list(title = 'HUMID'),
                       zaxis = list(title = 'TEMP')))
 
-
-# ts = plot.ts(ts(data_merge$Temperature, start=c(2017,3), frequency=1440))
-# 
-# ts3 = filter(data_merge, unitid=='SS0050')
-# plot.ts(ts(ts3$Temperature, frequency=1440, start=c(2017,3)))
-# plot(stl(ts(ts3$Temperature, frequency=1440, start=c(2017,3)), s.window="periodic"))
-
 data_ss0029 = subset(data_merge, unitid=='SS0029')
 data_ss0031 = subset(data_merge, unitid=='SS0031')
 data_ss0036 = subset(data_merge, unitid=='SS0036')
@@ -125,11 +114,3 @@ ts_co2_3 = ggplot(data_ss0029, aes(day, Co2, color=unitid)) + geom_point() + fac
 ts_light_3 = ggplot(data, aes(x=hour, y=Light, color=factor(unitid))) + geom_point() + facet_wrap(~date_time_format)
 ts_noise_3 = ggplot(data, aes(x=hour, y=Noise, color=factor(unitid))) + geom_point() + facet_wrap(~date_time_format)
 
-md.pattern(data_merge)
-md.pairs(data_merge)
-methods(mice)
-
-plot(zoo(data$date_time_format_2))
-
-data_merge$date_time_format = format(data$dateTime,tz="Asia/Kuala_Lumpur")
-with_tz(data_merge, "Asia/Kuala_Lumpur")
