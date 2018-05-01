@@ -3,7 +3,7 @@ library(pacman)
 pacman::p_load(tidyverse, reshape2, readxl, jsonlite, corrplot,XLConnect,magrittr) 
 
 getwd()
-setwd("C:/Users/Max/Documents/R/titanic")
+setwd("C:/Users/Documents/R/titanic")
 
 data("Titanic")
 
