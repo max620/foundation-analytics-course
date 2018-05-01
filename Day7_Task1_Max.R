@@ -1,12 +1,11 @@
 #links:
 # https://www.kaggle.com/c/titanic/data 
-# https://www.kaggle.com/poojagulati/exploring-survival-on-the-titanic 
 
 library(pacman)
 pacman::p_load(tidyverse, reshape2, readxl, jsonlite, corrplot,XLConnect,magrittr) 
 
 getwd()
-setwd("C:/Users/Max/Documents/R/titanic")
+setwd("C:/Users/Documents/R/titanic")
 
 data = read.csv('titanic3.csv')
 
