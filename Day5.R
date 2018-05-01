@@ -7,7 +7,7 @@ library(car) # for vif values
 library(corrplot) # for correlation plots
 library(caTools) # for coLAUC
 
-setwd( "C:/Users/Max/Documents/R")
+setwd( "C:/Users/Documents/R")
 
 day5 <- read.csv("subset_loan_default.csv")
 
